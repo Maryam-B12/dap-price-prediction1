@@ -1,0 +1,7 @@
+Project: DAP Price Prediction App
+
+Files:
+- app1.py: Streamlit app
+- model.pkl: trained model
+- DATA DAP.xlsx: input data
+How to run: streamlit run app1.py
