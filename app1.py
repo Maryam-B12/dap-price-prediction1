@@ -29,7 +29,7 @@ predictbutton = st.button("Predict!")
 if predictbutton:
     st.balloons()
     X_array = np.array([X])  # Le modèle attend un tableau 2D
-    prediction_dap = model_dap.predict(X_array)
+    prediction_dap = model.predict(X_array)
     prediction_tsp = model_tsp.predict(X_array)
     st.success("Prediction completed successfully.")
     st.markdown(f"- **Predicted DAP Price**: {float(prediction_dap[0]):,.2f}")
