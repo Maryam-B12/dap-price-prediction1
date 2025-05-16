@@ -21,6 +21,7 @@ X = [Soufre, NH3, ACS]
 
 # Chargement du modèle
 model = joblib.load("model.pkl")  # Assure-toi que le fichier 'model.pkl' est bien dans le même dossier
+model_tsp = joblib.load("model_tsp.pkl") 
 
 # Prédiction
 predictbutton = st.button("Predict!")
@@ -28,8 +29,13 @@ predictbutton = st.button("Predict!")
 if predictbutton:
     st.balloons()
     X_array = np.array([X])  # Le modèle attend un tableau 2D
-    prediction = model.predict(X_array)
-    st.write(f"🎯 Price prediction is **{float(prediction[0]):,.2f}**")
+    prediction_dap = model_dap.predict(X_array)
+    prediction_tsp = model_tsp.predict(X_array)
+    st.success("Prediction completed successfully.")
+    st.markdown(f"- **Predicted DAP Price**: {float(prediction_dap[0]):,.2f}")
+    st.markdown(f"- **Predicted TSP Price**: {float(prediction_tsp[0]):,.2f}")
 
 else:
     st.write("ℹ️ Please enter values and click Predict.")
+
+
