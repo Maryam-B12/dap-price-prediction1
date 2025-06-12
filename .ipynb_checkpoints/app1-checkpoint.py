@@ -7,7 +7,6 @@ st.title("DAP/TSP Price Prediction App")
 st.divider()
 st.write("This app uses machine learning to predict DAP and TSP prices based on raw material prices. "
          "To use it, select the type, enter the inputs and press the Predict button.")
-
 st.divider()
 
 # Sélection du type de prédiction
@@ -27,7 +26,7 @@ if prediction_type == "DAP":
     X = [Soufre, NH3, ACS]
 
 elif prediction_type == "TSP":
-     st.info("""
+    st.info("""
     📌 Pour prédire **le prix du TSP au mois t**, veuillez entrer :
     - Le prix du **Soufre au mois t−1**
     - Le prix de **ACS au mois t−2**
