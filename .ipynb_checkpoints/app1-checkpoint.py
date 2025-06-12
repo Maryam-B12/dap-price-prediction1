@@ -14,14 +14,19 @@ st.divider()
 prediction_type = st.selectbox("Choose the prediction type:", ["DAP", "TSP"])
 st.divider()
 
-# Entrée des variables
-Soufre = st.number_input("Prix Soufre", min_value=0, value=0)
-NH3 = st.number_input("Prix NH3", min_value=0, value=0)
-ACS = st.number_input("Prix ACS", min_value=0, value=0)
-st.divider()
+# Entrée des variables dynamiques
+if prediction_type == "DAP":
+    Soufre = st.number_input("Prix Soufre", min_value=0, value=0)
+    NH3 = st.number_input("Prix NH3", min_value=0, value=0)
+    ACS = st.number_input("Prix ACS", min_value=0, value=0)
+    X = [Soufre, NH3, ACS]
 
-# Préparation des données
-X = [Soufre, NH3, ACS]
+elif prediction_type == "TSP":
+    Soufre = st.number_input("Prix Soufre", min_value=0, value=0)
+    ACS = st.number_input("Prix ACS", min_value=0, value=0)
+    X = [Soufre, ACS]  # NH3 exclu ici
+
+st.divider()
 
 # Chargement des modèles
 model = joblib.load("model.pkl")        # DAP
