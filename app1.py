@@ -16,12 +16,22 @@ st.divider()
 
 # Entrée des variables dynamiques
 if prediction_type == "DAP":
+    st.info("""
+    📌 Pour prédire **le prix du DAP au mois t**, veuillez entrer :
+    - Le prix du **Soufre au mois t−2**
+    - Les prix de **NH3** et **ACS au mois t−1**
+    """)
     Soufre = st.number_input("Prix Soufre", min_value=0, value=0)
     NH3 = st.number_input("Prix NH3", min_value=0, value=0)
     ACS = st.number_input("Prix ACS", min_value=0, value=0)
     X = [Soufre, NH3, ACS]
 
 elif prediction_type == "TSP":
+     st.info("""
+    📌 Pour prédire **le prix du TSP au mois t**, veuillez entrer :
+    - Le prix du **Soufre au mois t−1**
+    - Le prix de **ACS au mois t−2**
+    """)
     Soufre = st.number_input("Prix Soufre", min_value=0, value=0)
     ACS = st.number_input("Prix ACS", min_value=0, value=0)
     X = [Soufre, ACS]  # NH3 exclu ici
