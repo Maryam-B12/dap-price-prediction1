@@ -59,14 +59,5 @@ else:
     st.write("ℹ️ Please enter values and click Predict.")
 
 
-import streamlit.components.v1 as components
 
-# Rafraîchissement automatique toutes les 50 minutes (50 × 60 × 1000 ms)
-components.html("""
-    <script>
-        setTimeout(function(){
-            window.location.reload();
-        }, 3000000);
-    </script>
-""", height=0)
 
